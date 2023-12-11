@@ -1,0 +1,15 @@
+---
+- name: apache install and configure
+  hosts: prod
+  tasks:
+    - name: install apache
+      ansible.builtin.dnf:
+        name: httpd
+        state: present
+      
+    - ansible.builtin.service:
+        name: httpd
+        state: started
+        enabled: yes
+
+      
